@@ -67,21 +67,18 @@ Chef, Puppet, Ansible, and SaltStack are all *configuration management* tools, w
 The code looks similar to the Bash script, but using a tool like Ansible offers a number of advantages:
 
 **Coding conventions**
-
 	Ansible enforces a consistent, predictable structure, including documentation, file layout, clearly named parameters, secrets management, and so on. While every developer organizes his or her ad hoc scripts in a different way, most configuration management tools come with a set of conventions that makes it easier to navigate the code.
 
 **Idempotence**
-
 	Writing an ad hoc script that works once isn’t too difficult; writing an ad hoc script that works correctly even if you run it over and over again is a lot harder. Every time you go to create a folder in your script, you need to remember to check if that folder already exists; every time you add a line of configuration to a file, you need to check that line doesn’t already exist; every time you want to run an app, you need to check that the app isn’t already running.
 
 	Code that works correctly no matter how many times you run it is called *idempotent code*. To make the Bash script from the previous section idempotent, you’d have to add many lines of code, including lots of if-statements. Most Ansible functions, on the other hand, are idempotent by default.
 
 **Distribution**
-
 	Ad hoc scripts are designed to run on a single, local machine. Ansible and other configuration management tools are designed specifically for managing large numbers of remote servers.
 
 .. image:: images/configuration_management.png
-	:align: left
+	:align: center
 
 
 Server Templating Tools
@@ -90,7 +87,7 @@ Server Templating Tools
 An alternative to configuration management that has been growing in popularity recently are *server templating tools* such as Docker, Packer, and Vagrant. Instead of launching a bunch of servers and configuring them by running the same code on each one, the idea behind server templating tools is to create an *image* of a server that captures a fully self-contained “snapshot” of the operating system, the software, the files, and all other relevant details. You can then use some other IAC tool to install that image on all of your servers, as shown in the below picture.
 
 .. image:: images/server_templating_tools.png
-	:align: left
+	:align: center
 
 There are two broad categories of tools for working with images:
 
@@ -135,7 +132,7 @@ Server Provisioning Tools
 Whereas configuration management and server templating tools define the code that runs on each server, *server provisioning tools* such as Terraform, CloudFormation, and OpenStack Heat are responsible for creating the servers themselves. In fact, you can use provisioning tools to not only create servers, but also databases, caches, load balancers, queues, monitoring, subnet configurations, firewall settings, routing rules, SSL certificates, and almost every other aspect of your infrastructure, as shown in the below Figure.
 
 .. image:: images/server_provisioning_tools.png
-	:align: left
+	:align: center
 
 For example, the following code deploys a web server using Terraform:
 
