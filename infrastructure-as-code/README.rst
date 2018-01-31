@@ -47,22 +47,23 @@ Chef, Puppet, Ansible, and SaltStack are all *configuration management* tools, w
 .. code-block:: ansible
 
 	- name: Update the apt-get cache
-      apt:
+	  apt:
 		update_cache: yes
 
 	- name: Install PHP
-      apt:
+	  apt:
 		name: php
 
 	- name: Install Apache
-      apt:
+	  apt:
 		name: apache2
 
 	- name: Copy the code from the repository
-      git: repo=https://github.com/dppascual/php-app.git dest=/var/www/html/app
+	  git: repo=https://github.com/dppascual/php-app.git dest=/var/www/html/app
 
 	- name: Start Apache
-      service: name=apache2 state=started enabled=yes
+	  service: name=apache2 state=started enabled=yes  
+
 
 The code looks similar to the Bash script, but using a tool like Ansible offers a number of advantages:
 
@@ -77,17 +78,12 @@ The code looks similar to the Bash script, but using a tool like Ansible offers 
 **Distribution**
 	Ad hoc scripts are designed to run on a single, local machine. Ansible and other configuration management tools are designed specifically for managing large numbers of remote servers.
 
-.. image:: images/configuration_management.png
-	:align: center
-
 
 Server Templating Tools
 -----------------------
 
 An alternative to configuration management that has been growing in popularity recently are *server templating tools* such as Docker, Packer, and Vagrant. Instead of launching a bunch of servers and configuring them by running the same code on each one, the idea behind server templating tools is to create an *image* of a server that captures a fully self-contained “snapshot” of the operating system, the software, the files, and all other relevant details. You can then use some other IAC tool to install that image on all of your servers, as shown in the below picture.
 
-.. image:: images/server_templating_tools.png
-	:align: center
 
 There are two broad categories of tools for working with images:
 
@@ -130,9 +126,6 @@ Server Provisioning Tools
 -------------------------
 
 Whereas configuration management and server templating tools define the code that runs on each server, *server provisioning tools* such as Terraform, CloudFormation, and OpenStack Heat are responsible for creating the servers themselves. In fact, you can use provisioning tools to not only create servers, but also databases, caches, load balancers, queues, monitoring, subnet configurations, firewall settings, routing rules, SSL certificates, and almost every other aspect of your infrastructure, as shown in the below Figure.
-
-.. image:: images/server_provisioning_tools.png
-	:align: center
 
 For example, the following code deploys a web server using Terraform:
 
